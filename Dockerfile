@@ -1,7 +1,9 @@
 FROM elixir:1.3.2
 
-RUN mkdir /exercises
+ENV ROOT_EXERCISES /exercises
 
-ADD . /exercises
+RUN mkdir $ROOT_EXERCISES
 
-RUN ["/bin/bash"]
+ADD . $ROOT_EXERCISES
+
+WORKDIR $ROOT_EXERCISES
