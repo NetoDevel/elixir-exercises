@@ -38,4 +38,14 @@ defmodule StringTips do
     IO.puts "substring: #{String.slice(my_str, 2, 4)}"
   end
 
+  def reverse_string do
+    my_str = "NetoDevel"
+    IO.puts "reverse: #{String.reverse(my_str)}"
+  end
+
+  def upcase_string do
+    my_str = "netodevel"
+    IO.puts "Upcase: #{String.upcase(my_str)}"
+  end
+
 end
