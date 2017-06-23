@@ -1,15 +1,21 @@
-defmodule Solution do
-  def main() do
-    n = IO.gets("") |> String.strip |> String.to_integer
-    list = IO.gets("") |> String.to_charlist
-    replication(n, list)
+defmodule ListReplication do
+  def to_integer_list(input) do
+    input
+    |> String.split
+    |> Enum.map(&parse_string_to_number/1)
   end
 
-  def replication(n, list) do
-    Enum.map(list, fn(x) -> for z <- List.duplicate(x, n), do: IO.puts z end)
+  def parse_string_to_number(char) do
+    String.to_integer(char)
   end
 
-  def to_list(input) do
-
+  def replication([times | integers_list] = _list) do
+    Enum.map(integers_list, fn(num) -> List.duplicate(num, times) end)
+    |> List.flatten
+    |> Enum.each(fn(num) -> IO.puts num end)
   end
 end
+
+IO.read(:stdio, :all)
+|> ListReplication.to_integer_list
+|> ListReplication.replication
